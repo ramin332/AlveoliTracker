@@ -16,8 +16,13 @@ COPY app/ .
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Create a non-root user and switch to it
+# Create a non-root user 'myuser'
 RUN useradd -m myuser
+
+# Change ownership of the /app directory to 'myuser'
+RUN chown -R myuser:myuser /app
+
+# Switch to 'myuser'
 USER myuser
 
 # Define the command to run the Python script

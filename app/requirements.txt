@@ -1,4 +1,6 @@
 dash
+openpyxl
 pandas
 numpy
 plotly
+
